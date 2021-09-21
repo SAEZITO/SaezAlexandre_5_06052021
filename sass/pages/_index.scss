@@ -1,0 +1,188 @@
+    // SECTION SEARCH + SECTION INTRO
+    .nav
+    {
+        &__search{    
+            @include flexbox (row, center, center, nowrap);
+            background-color: $mid-grey;
+            padding: 1rem 0;
+            margin: 0;
+            width: 100%;
+        }
+        &__resa{
+            @include flexbox (column, center, center, nowrap);
+            background-color: $light-grey;
+            text-align: center;
+            padding: 1rem;
+            p{
+                font-size: 1rem;
+                font-weight: 300;
+            }
+        }
+    }
+    .search
+    {
+        font-size: 1rem;
+        color: $dark-grey;
+        &.iconposition{
+            margin: 0;
+        }
+        &.textposition{
+            font-family: "Roboto", Arial, Verdana, sans-serif;
+            font-weight: bold;
+            margin: 0;
+            padding: 0.5rem;
+            background-color: $mid-grey;
+            border: none;
+                &::focus{border-color: black;}
+                &::active{border-color: black;}
+        }
+        &.iconsearch{
+            display: none;
+        }
+    }
+
+
+    // SECTION FONCTIONNEMENT
+
+    .fonct
+    {
+        @include flexbox(row, center, unset, wrap);
+        padding: 1rem;
+        margin: 1rem 0;
+
+        &__head{
+            @include flexbox(unset, unset, unset, unset);
+            @include desktop-only{
+                justify-content: center;
+            }
+            width: 100%;
+            margin: 1rem 0;
+        }
+        &__content{
+            @include flexbox (row, unset, center, unset);
+            @include desktop-only {
+                width: calc((100% / 3) - 6rem);
+                margin: 2rem;
+                padding: 1.5rem 0;
+                font-size: 1rem;
+            }
+            border-radius: 1.5rem;
+            background-color: $mid-grey;
+            box-shadow: 3px 3px 10px #CCCCCC;
+            padding: 1rem 0;
+            margin: 0.5rem 0;
+            width: calc(100% - 1rem);
+            &>span{
+                @include flexbox (unset, center, center, unset);
+                @include position (relative, unset, 1rem);
+                color: $color-white;
+                border-radius: 10rem;
+                background-color: $color-primary;
+                height: 2rem;
+                width: 2rem;
+            }
+            &>i{
+                margin: 0 1rem 0 0;
+                padding: 0;
+                color: $dark-grey;
+                font-size: 1.2rem;
+            }
+
+            &:hover{
+                @include box-shadow(20%);
+                background-color: rgba(148, 0, 211, 0.1);
+                &>i{
+                    color: $color-primary;
+                }
+            }
+
+        }
+    }
+
+
+    // SECTION RESTAURANTS
+
+
+    .resto
+    {
+        @include flexbox (column, center, unset, nowrap);
+        background-color: $light-grey;
+        margin: 0;
+        padding: 2rem 1rem;
+        &__head{
+            @include desktop-only{
+                text-align: center;
+            }
+            width: 100%;
+            text-align: left;
+        }
+
+        &__content{
+            @include flexbox (row, center, unset, wrap);
+        }
+    }
+    
+
+    .new {
+        @include position(absolute, 1rem, 1rem);
+        @include flexbox (unset, center, center, unset);
+        color: darken($color-tertiary, 50%);
+        background-color: $color-tertiary;
+        padding: 0;
+        margin: 0;
+        width: 5rem;
+        height: 2rem;
+        font-size: 1rem;
+        font-weight: 500;
+    }
+
+    .card
+    {        
+        @include layout-cards;
+        @include desktop-only{
+            margin: 1rem;
+            width: calc(45% - 4rem);
+        }
+        background-color: $color-white;
+        margin: 1rem 0;
+        padding: 0;
+        width: 100%;
+        &__img
+        {   
+            height: 10rem;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 1rem 1rem 0 0;
+            position: relative;
+                &>img{
+                        height: 100%;
+                        width: 100%;
+                        object-fit: cover;
+                        border-radius: 1rem 1rem 0 0;
+    }
+        }
+        &__info
+        {
+            @include flexbox (row, space-between, center, nowrap);
+            margin: 0;
+            padding: 0.5rem;
+        }
+
+    }
+
+
+    .info{
+                margin: 0 0 0.5rem 0.5rem;
+                padding: 0;
+                width: 100%;
+                font-size: 1.2rem;
+            h3, p{
+                margin: 0.5rem 0;
+                padding: 0;
+                color: black;
+            }
+
+        }
+        
+
+

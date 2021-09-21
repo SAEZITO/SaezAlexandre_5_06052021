@@ -1,0 +1,45 @@
+.foot {
+    @include desktop-only {
+       @include flexbox(row, space-around, center, wrap);
+       padding: 1rem;
+      }
+    background-color: $dark-grey;
+    color: $color-white;
+    padding: 1rem 1rem 2rem 1rem;
+    margin: 0;
+    width: calc(100% - 2rem);
+
+ &__logo{
+    @include desktop-only{
+        width: 100%;
+        text-align: center;
+    }
+    font-family:'Shrikhand';
+    padding: 0;
+    margin: 1rem 0 0 0;
+    font-size: 1.7rem;
+ }
+}
+.link {
+    @include flexbox (row, flex-start, center, nowrap);
+    @include desktop-only{ 
+        font-size: 1.2rem;
+        margin: 1rem 0;
+        }
+    color: $color-white;
+    font-weight: 500;
+    font-size: 1rem;
+    color: $color-white;
+    margin: 1rem 0 0 0;
+    padding: 0;
+    &:hover{
+            @include desktop-only{
+                transform: scale(1.25);
+                transition-duration: 200ms;
+            }
+    }
+    &__icon {
+        width: 1.5rem;
+        margin-right: 0.5rem;
+    } 
+}

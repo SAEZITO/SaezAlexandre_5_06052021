@@ -1,0 +1,19 @@
+header {
+        @include flexbox(row, unset, center, unset);
+        padding: 1rem;
+    .head__icon
+    {
+        color: black;
+        font-size: 1.5rem;
+        margin-right: 2rem;
+    }
+    .head__logo
+    {
+        @include desktop-only {margin: 0;}
+        font-family: 'Shrikhand';
+        text-align: center;
+        flex: 1;
+        margin: 0;
+    }
+}
+

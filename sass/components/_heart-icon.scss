@@ -1,0 +1,48 @@
+
+.like
+{
+    @include flexbox(unset, center, center, unset);
+    position: relative;
+    margin: 1rem;
+    padding: 0;
+    cursor: pointer;
+    color: $color-tertiary;
+     &>i{
+                @include flexbox (unset, center, center, nowrap);
+                position: absolute;
+                font-size: 2rem;
+                width: 3rem;
+                height: 3rem;
+       }
+    
+     &>.heart--empty{
+                        color: $color-tertiary;
+                        transition-duration: 300ms;
+            }
+    
+     &>.heart--full{
+                        opacity: 0;
+                        color: $color-tertiary;
+                        transition-duration: 300ms;
+            }
+  
+}
+
+
+.like:hover{
+            &>.heart--empty{
+                        opacity: 0;
+                        transition-duration: 500ms;
+            }
+            &>.heart--full{
+                        opacity: 1;
+                        transition-duration: 2s;
+                        background: -webkit-gradient(linear, left top, left bottom, from($color-secondary), to($color-primary));
+                                    -webkit-background-clip: text;
+                                    -webkit-text-fill-color: transparent;
+                        transform: scale(1.15);
+                        z-index: 1;
+            }
+
+        }
+  
