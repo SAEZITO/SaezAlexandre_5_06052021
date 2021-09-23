@@ -1,0 +1,50 @@
+.item
+{       @include flexbox (column, space-around, center, unset);
+        @include layout-cards;
+        @include desktop-only{
+            margin: 1rem;
+            width: calc(45% - 4rem);
+        background-color: $color-secondary;
+        margin: 1rem 0;
+        padding: 0;
+        min-width: 30rem;
+        
+        &__link        {   
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 1rem 1rem 0 0;
+            position: relative;
+        }
+
+        &__title
+        {
+            @include flexbox (row, space-between, center, nowrap);
+            margin: 0;
+            padding: 0.5rem;
+        }
+        
+        &__picture{
+
+            width: calc(100% - 2rem);
+            max-height: 30rem;
+            margin: 0 1rem;
+            object-fit: cover;
+            position: relative;
+            @include desktop-only {
+                height: 40rem;
+            }
+                
+        }
+        &__price{
+
+
+        }
+
+        &__descript{
+
+
+        }
+
+    }
+}

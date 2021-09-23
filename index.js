@@ -1,9 +1,9 @@
     const itemCard = document.getElementById('product');
-    const itemTitle = document.getElementById("item_title");
-    const itemPrice = document.getElementById("item_price");
-    const itemPic = document.getElementById("item_picture");
-    const itemLink = document.getElementById("item_link");
-    const itemDesc = document.getElementById("item_descript");
+    const itemTitle = document.getElementById("item__title");
+    const itemPrice = document.getElementById("item__price");
+    const itemPic = document.getElementById("item__picture");
+    const itemLink = document.getElementById("item__link");
+    const itemDesc = document.getElementById("item__descript");
 
 
 function getArticles()
@@ -29,7 +29,7 @@ function displayArticle(product)
     itemDesc.textContent = product.description;
     itemLink.href += `?id=${product._id}`;
 
-    /*intègre le clone en récupérant "main" dans la page ainsi que son élément enfant "clone"*/
+    /*intègre le produit en récupérant "main" dans la page et en créant son élément enfant "clone" qui correspond à la card du produit*/
     document.getElementById("main").appendChild(clone);
 }
 
@@ -43,7 +43,6 @@ function displayArticle(product)
     for (product of articles) 
     {
         displayArticle(product)
-        console.log(itemPrice)
     }
 }
 

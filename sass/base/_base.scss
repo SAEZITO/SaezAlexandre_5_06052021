@@ -8,8 +8,11 @@ body {
 }
 
 .page-container {
-	width: 100%;
-	z-index: 1;
+	z-index: 1;  
+    width: calc(100% - 4rem);
+    margin: 0;
+    padding: 0 2rem;
+    text-align: center;
 }
 a:link, a:visited, a{
     text-decoration: none;

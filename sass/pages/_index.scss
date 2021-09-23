@@ -1,24 +1,4 @@
-    // SECTION SEARCH + SECTION INTRO
-    .nav
-    {
-        &__search{    
-            @include flexbox (row, center, center, nowrap);
-            background-color: $mid-grey;
-            padding: 1rem 0;
-            margin: 0;
-            width: 100%;
-        }
-        &__resa{
-            @include flexbox (column, center, center, nowrap);
-            background-color: $light-grey;
-            text-align: center;
-            padding: 1rem;
-            p{
-                font-size: 1rem;
-                font-weight: 300;
-            }
-        }
-    }
-   
-
-
+.main{
+    @include flexbox (row, space-between, center, wrap);
+    
+}
