@@ -11,12 +11,7 @@ body {
 	width: 100%;
 	z-index: 1;
 }
-a:link{
+a:link, a:visited, a{
     text-decoration: none;
-}
-a:visited{
-    text-decoration: none;
-}
-a{
     cursor: pointer;
 }

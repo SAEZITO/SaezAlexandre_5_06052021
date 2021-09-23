@@ -1,20 +1,10 @@
-let itemcard = document.getElementById('product')
+    const itemCard = document.getElementById('product');
+    const itemTitle = document.getElementById("item_title");
+    const itemPrice = document.getElementById("item_price");
+    const itemPic = document.getElementById("item_picture");
+    const itemLink = document.getElementById("item_link");
+    const itemDesc = document.getElementById("item_descript");
 
-function getItems(){
-
-		fetch("http://localhost:3000/api/furniture")
-		.then(function(res) {
-    			if (res.ok) {
-      				return res.json();
-   							 }
-  							})
- 		.then(function(value) {
-    			document.getElementById("templateProduct");
-    			})
-  .catch(function(err) {
-    // Une erreur est survenue
-  });
-}
 
 function getArticles()
 /*crée une fonction permettant de récupérer les info de l'API, de les convertirs en format 'json' et d'afficher une
@@ -31,35 +21,29 @@ alerte error si le fetch ne fonctionne pas*/
 
 function displayArticle(product)
 {
-    const template = document.getElementById("templateProduit");
-    const clone = document.importNode(template.content, true);
+   var clone = itemCard.cloneNode(true);
     /*récupère les éléments de l'API pour les caractéristique ciblées*/
-    clone.getElementById("item_title").textContent = product.name;
-    clone.getElementById("item_price").textContent = product.price / 100 + ".00€";
-    clone.getElementById("item_picture").setAttribute("src", product.imageUrl);
-    clone.getElementById("item_body").textContent = product.description;
-    clone.getElementById("item_link").href += `?id=${product._id}`;
+    itemTitle.textContent = product.name;
+    itemPrice.textContent = product.price / 100 + ".00€";
+    itemPic.setAttribute("src", product.imageUrl);
+    itemDesc.textContent = product.description;
+    itemLink.href += `?id=${product._id}`;
 
     /*intègre le clone en récupérant "main" dans la page ainsi que son élément enfant "clone"*/
     document.getElementById("main").appendChild(clone);
 }
 
 
-   /* for(couleur of produit.colors)
-    {
-        document.getElementById(produit._id).innerHTML += `
-        <option>${couleur}</option>`
-    }
-    }*/
 
 
     async function main()
 {
     const articles = await getArticles()
 
-    for (produit of articles) 
+    for (product of articles) 
     {
-        displayArticle(produit)
+        displayArticle(product)
+        console.log(itemPrice)
     }
 }
 
