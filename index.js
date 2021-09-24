@@ -1,18 +1,11 @@
-    const itemCard = document.getElementById('product');
-    const itemTitle = document.getElementById("item__title");
-    const itemPrice = document.getElementById("item__price");
-    const itemPic = document.getElementById("item__picture");
-    const itemLink = document.getElementById("item__link");
-    const itemDesc = document.getElementById("item__descript");
-
 
 function getArticles()
 /*crée une fonction permettant de récupérer les info de l'API, de les convertirs en format 'json' et d'afficher une
 alerte error si le fetch ne fonctionne pas*/
 {
     return fetch("http://localhost:3000/api/furniture")
-    .then(function(httpBodyResponse){
-        return httpBodyResponse.json()
+    .then(function(res){
+        return res.json()
     })
     .catch(function(error){
         alert(error)
@@ -21,15 +14,24 @@ alerte error si le fetch ne fonctionne pas*/
 
 function displayArticle(product)
 {
-   var clone = itemCard.cloneNode(true);
-    /*récupère les éléments de l'API pour les caractéristique ciblées*/
-    itemTitle.textContent = product.name;
-    itemPrice.textContent = product.price / 100 + ".00€";
-    itemPic.setAttribute("src", product.imageUrl);
-    itemDesc.textContent = product.description;
-    itemLink.href += `?id=${product._id}`;
+    let template = document.querySelector("#template__product");
+    console.log(product);
+    var clone = document.importNode(template.content, true);
+    var cloneLink = clone.getElementById("item__link");
+    var cloneCard = clone.getElementById("product");
+    var cloneTitle = clone.getElementById("item__title");
+    var clonePic = clone.getElementById("item__picture");
+    var clonePrice = clone.getElementById("item__price");
+    var cloneDesc = clone.getElementById("item__descript");
+   /*Creer des clones puis récupère chaque élément de l'API pour les caractéristique ciblées*/
+    
+    cloneTitle.textContent = product.name;
+    clonePrice.textContent = product.price / 100 + ".00€";
+    clonePic.setAttribute("src", product.imageUrl);
+    cloneDesc.textContent = product.description;
+    cloneLink.href += `?id=${product._id}`;
 
-    /*intègre le produit en récupérant "main" dans la page et en créant son élément enfant "clone" qui correspond à la card du produit*/
+    /*intègre le produit en récupérant "main" dans la page et en créant son élément enfant "clone" qui correspond à itemCard*/
     document.getElementById("main").appendChild(clone);
 }
 
@@ -39,11 +41,10 @@ function displayArticle(product)
     async function main()
 {
     const articles = await getArticles()
-
+    console.log(articles);
     for (product of articles) 
     {
         displayArticle(product)
     }
 }
-
 main()

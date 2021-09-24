@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="Fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Orinobois est un site de vente de meubles en bois personnalisables et vendus partout en France.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="shortcut icon" type="" href="">
+    <link rel="stylesheet" href="style.css">	
+    <script src="https://kit.fontawesome.com/32706c31d2.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Shrikhand&display=swap" rel="stylesheet">   
+    <title>Orinobois</title>
+</head>
+
+
+
+<body>
+<!-- Principal conteneur -->
+    
+
+<header>
+		<nav class="menu">
+	    <a href="index.html">Accueil</a>
+            <a href="cart.html">Panier</a>
+            <a href="form.html">Commande</a>
+		</nav>
+</header>
+
+<div class="page-container">
+
+<!-- bloc-1-presentation des articles -->
+
+<main class="main" id="main">
+        <h1 class="title"> Orinobois le site de vente de meubles en bois</h1>
+        <form  id="form">
+            <label> Nom : <input id="nom" type="text" max-lenght=20 value="Entrez vôtre nom ici"/></label>
+            <label> Prénom : <input id="prenom" type="text" max-lenght=20 value="Entrez vôtre prénom ici"/></label>
+            <label> Code postal : <input id="cp" type="nuber" pattern="[0-9]{,5}" value="Entrez votre code postal ici"/></label>
+            <label> Ville : <input id="ville" type="text" max-lenght=50 value="Entrez le nom de vôtre ville"/></label>
+            <label> Adresse : <input id="adresse" type="text" max-lenght=50 value="Entrez vôtre adresse ici"/></label>
+            <label> Numéro de téléphone : <input id="numTel" type="number" pattern="[0-9]{,10}" value="Entrez vôtre numéro ici"/></label>
+            <input type="submit" value="Envoyer" class="btn__send"/>
+        </form>
+
+</main>
+
+</div>
+
+
+<footer class="footer">
+                    <a class="footer__link" href="#">
+                        <i class="fa-utensils fas footerlink_icon"></i><p>Politique de confidentialités</p>
+                    </a>
+                    <a class="footer__link" href="#">
+                        <i class="fa-hands-helping fas footerlink_icon"></i><p>Se débarrasser de ses meubles</p>
+                    </a>
+                    <a class="footer__link" href="#">
+                        <i class="fa-balance-scale fas footerlink_icon"></i><p>Mentions légales</p>
+                    </a>
+                    <a class="footer__link" href="mailto:contact@orinobois.com">
+                        <i class="fa-comments fas footer_icon"></i><p>Contact</p>
+                    </a>
+</footer>
+
+
+
+<!-- Principal conteneur END -->
+    
+    <script src="form.js"></script>
+
+</body>
+</html>

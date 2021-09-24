@@ -1,4 +1,4 @@
 .main{
-    @include flexbox (row, space-between, center, wrap);
+    @include flexbox (row, unset, center, wrap);
     
 }

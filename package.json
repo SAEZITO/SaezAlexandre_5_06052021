@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "site with api",
   "main": "index.js",
-  "scripts": {"test": "echo \"Error: no test specified\" && exit 1",
-    "sass": "sass --watch ./sass/index.scss:style.css"  
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch ./sass/index.scss:style.css"
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SAEZITO/SaezAlexandre_5_06052021.git"
@@ -19,5 +19,6 @@
   "homepage": "https://github.com/SAEZITO/SaezAlexandre_5_06052021#readme",
   "dependencies": {
     "node-sass": "^6.0.1"
-  }
+  },
+  "devDependencies": {}
 }

@@ -5,6 +5,9 @@ body {
 	width: 100%;
     margin: 0;
     padding: 0;
+    background-color: $color-tertiary;
+    color: $color-secondary;
+    z-index: -1;
 }
 
 .page-container {

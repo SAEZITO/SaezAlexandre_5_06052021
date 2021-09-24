@@ -1,13 +1,11 @@
 .item
 {       @include flexbox (column, space-around, center, unset);
         @include layout-cards;
-        @include desktop-only{
-            margin: 1rem;
-            width: calc(45% - 4rem);
+        margin: 1rem;
         background-color: $color-secondary;
-        margin: 1rem 0;
-        padding: 0;
-        min-width: 30rem;
+        padding: 1rem;
+        width: calc(33% - 6rem);
+        max-height: 25rem;
         
         &__link        {   
             height: 100%;
@@ -15,19 +13,21 @@
             object-fit: cover;
             border-radius: 1rem 1rem 0 0;
             position: relative;
+            color: $color-primary;
+
         }
 
         &__title
         {
             @include flexbox (row, space-between, center, nowrap);
             margin: 0;
-            padding: 0.5rem;
+            padding: 0 0 1rem 0;
         }
         
         &__picture{
 
             width: calc(100% - 2rem);
-            max-height: 30rem;
+            max-height: 15rem;
             margin: 0 1rem;
             object-fit: cover;
             position: relative;
@@ -46,5 +46,4 @@
 
         }
 
-    }
 }
