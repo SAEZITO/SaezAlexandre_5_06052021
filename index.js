@@ -1,50 +1,37 @@
 
-function getArticles()
-/*crée une fonction permettant de récupérer les info de l'API, de les convertirs en format 'json' et d'afficher une
-alerte error si le fetch ne fonctionne pas*/
-{
-    return fetch("http://localhost:3000/api/furniture")
-    .then(function(res){
-        return res.json()
-    })
-    .catch(function(error){
-        alert(error)
-    })
-}
 
-function displayArticle(product)
-{
-    let template = document.querySelector("#template__product");
-    console.log(product);
-    var clone = document.importNode(template.content, true);
-    var cloneLink = clone.getElementById("item__link");
-    var cloneCard = clone.getElementById("product");
-    var cloneTitle = clone.getElementById("item__title");
-    var clonePic = clone.getElementById("item__picture");
-    var clonePrice = clone.getElementById("item__price");
-    var cloneDesc = clone.getElementById("item__descript");
-   /*Creer des clones puis récupère chaque élément de l'API pour les caractéristique ciblées*/
-    
-    cloneTitle.textContent = product.name;
-    clonePrice.textContent = product.price / 100 + ".00€";
-    clonePic.setAttribute("src", product.imageUrl);
-    cloneDesc.textContent = product.description;
-    cloneLink.href += `?id=${product._id}`;
-
-    /*intègre le produit en récupérant "main" dans la page et en créant son élément enfant "clone" qui correspond à itemCard*/
-    document.getElementById("main").appendChild(clone);
-}
-
-
-
-
-    async function main()
-{
-    const articles = await getArticles()
-    console.log(articles);
-    for (product of articles) 
-    {
-        displayArticle(product)
-    }
-}
-main()
+const request = async (url) => {
+    return fetch(url)
+      .then((res) => {
+        return res.json(),
+      })
+      .catch((error) => {
+        console.error(error);
+    })  
+  }
+  
+   
+   const createListingTpl = (products) => {
+     if(products?.length === 0) {
+       console.error("Product is empty");
+       return;
+     }
+     
+     let tpl = '';
+     for(const product of products) {
+       tpl = `<div id="product" class="item">
+                <a class="item__link" href="product.html?id=${product._id}">
+                  <h2 class="item__title">${product.name}</h2>
+                  <img class="item__picture" src="${product.imageUrl}">
+                      <p class="item__price">${product.price}</p>
+                      <p class="item__descript">${product.description}</p>
+                </a>
+            </div>`;
+     }
+     return tpl;
+   }
+  
+  request("http://localhost:3000/api/furniture").then( articles => {
+      document.getElementById("main").innerHTML = createListingTpl(articles);
+  })
+  
