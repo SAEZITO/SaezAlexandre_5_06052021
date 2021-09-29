@@ -3,7 +3,7 @@
 const request = async (url) => {
     return fetch(url)
       .then((res) => {
-        return res.json(),
+        return res.json();
       })
       .catch((error) => {
         console.error(error);
@@ -18,13 +18,13 @@ const request = async (url) => {
      }
      
      let tpl = '';
-     for(const product of products) {
-       tpl = `<div id="product" class="item">
-                <a class="item__link" href="product.html?id=${product._id}">
-                  <h2 class="item__title">${product.name}</h2>
-                  <img class="item__picture" src="${product.imageUrl}">
-                      <p class="item__price">${product.price}</p>
-                      <p class="item__descript">${product.description}</p>
+     for(const article of products) {
+       tpl += `<div class="item">
+                <a class="item__link" href="product.html?id=${article._id}">
+                  <h2 class="item__title">${article.name}</h2>
+                  <img class="item__picture" src="${article.imageUrl}">
+                      <p class="item__price">${article.price / 100}.00€</p>
+                      <p class="item__descript">${article.description}</p>
                 </a>
             </div>`;
      }
