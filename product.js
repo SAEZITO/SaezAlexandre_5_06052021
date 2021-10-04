@@ -1,6 +1,6 @@
 import {Product} from "./modules/function.js";
 
-
+//Fonction de récupération des données de l'api
 const request = async (url) => {
     return fetch(url)
         .then((res) => {
@@ -23,7 +23,7 @@ const createProductTpl = (article) => {
         return;
     }
 
-    // Affichage du produits
+    // Recuperation pour affichage du produit
     let tpl = `
             <div class="product">
                 <div class="product__img"><img src="${article.imageUrl}">
@@ -79,6 +79,7 @@ function addCart(article) {
         .addEventListener("click", (e) => {
             e.preventDefault()
             const product = new Product(article._id, article.name, quantity, article.price, selectedVarnish)
+            localStorage.product = JSON.stringify(product);
         });
 }
 

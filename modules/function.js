@@ -1,4 +1,4 @@
-export class Product{
+export default class Product{
     constructor(idProduct, name, quantity, price, varnish){
 
         this.id = idProduct
