@@ -20,7 +20,7 @@ const request = async (url) => {
      let tpl = '';
      for(const article of products) {
        tpl += `<div class="item">
-                <a class="item__link" href="product.html?id=${article._id}">
+                <a class="item__link" href="./html/product.html?id=${article._id}">
                   <h2 class="item__title">${article.name}</h2>
                   <img class="item__picture" src="${article.imageUrl}">
                       <p class="item__price">${article.price / 100}.00€</p>

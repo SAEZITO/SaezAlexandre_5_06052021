@@ -1,5 +1,25 @@
-import {Product} from "./modules/function.js";
 
+class Product{
+    constructor(idProduct, name, quantity, price, varnish){
+
+        this.id = idProduct
+        this.name = name
+        this.quantity = quantity
+        this.price = price
+        this.varnish = varnish
+        }
+}
+
+class User {
+    constructor(name, prename, postal, city, adress, phone){
+        this.name = name
+        this.prename =prename
+        this.postal = postal
+        this.city = city
+        this.adress = adress
+        this.phone = phone
+    }
+}
 //Fonction de récupération des données de l'api
 const request = async (url) => {
     return fetch(url)
@@ -14,8 +34,6 @@ const request = async (url) => {
 
 // récupération de l'id du produit dans l'url
 const idProduct = window.location.search.slice(4);
-
-console.log(idProduct);
 
 const createProductTpl = (article) => {
     if (article?.length === 0) {
@@ -66,22 +84,47 @@ request("http://localhost:3000/api/furniture/" + idProduct).then(article => {
     // affichage de la fiche produit       
     document.getElementById("main").innerHTML = createProductTpl(article);
 
-})
 
-function addCart(article) {
-    // on récupère les valeurs du produit choisi par l'utilisateur
-    let selectedVarnish = document.querySelector("select").value;
-    console.log(selectedVarnish);
-    let quantity = document.getElementById("productQuantity").value;
-    console.log(quantity);
-
+    
     document.getElementById("pushProduct")
         .addEventListener("click", (e) => {
             e.preventDefault()
-            const product = new Product(article._id, article.name, quantity, article.price, selectedVarnish)
-            localStorage.product = JSON.stringify(product);
-        });
-}
+            // on récupère les valeurs du produit choisi par l'utilisateur
+                let selectedVarnish = document.querySelector("select").value;
+                let quantity = document.getElementById("productQuantity").value;
+                if (quantity <= 0){
+                    alert("Vous devez choisir une quantité supérrieure à 0");
+                }else{
+            //puis on ajoute le produit au localstorage
+            const product = new Product(article._id, article.name, quantity, ((article.price * quantity)/100), selectedVarnish)
+            localStorage.selectedProduct = JSON.stringify(product);
+            console.log(product);
+
+        // on récupère les données du panier, si le panier est vide on l'initialise avec un array vide
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        // si le panier est vide, on ajoute le 1er produit
+        if (cart.length == 0) {
+            cart.push(product);
+        }
+        // sinon verifier si le produit selectionné existe déjà dans le localStorage pour accumuler les quantités
+        else {
+            // recherche les même id
+            const sameProducts = cart.find(product => product._id === selectedProduct._id);
+            if (sameProducts) {
+                // quantité des produits calculée en additionnant la quantité déjà présente dans le storage et la nouvelle quantité ajoutée, idem pour prix
+                sameProducts.quantity = Number(sameProducts.quantity) + Number(selectedProduct.quantity);
+                sameProducts.price = sameProducts.price + selectedProduct.price;
+            } else {
+                cart.push(product);
+            }
+        }
+        // ajoute l'élement dans le localStorage
+        localStorage.setItem("cart", JSON.stringify(cart));
+        
+    }});
+});
+
 
        // Récupération des données produit dans une instance de classe
 
@@ -100,30 +143,6 @@ function addCart(article) {
                         // on modifie le prix, la quantité
         selectedProduct.quantity = quantity;
         selectedProduct.price = (selectedProduct.price/100)*quantity;
-
-        // on récupère les données du panier, si le panier est vide on l'initialise avec un array vide
-        const cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-        // si le panier est vide, on ajoute le 1er produit
-        if (cart.length == 0) {
-            cart.push(selectedProduct);
-        }
-        // sinon verifier si le produit selectionné existe déjà dans le localStorage pour accumuler les quantités
-        else {
-            // recherche les même id
-            const sameProducts = cart.find(product => product._id === selectedProduct._id);
-            if (sameProducts) {
-                // quantité des produits calculée en additionnant la quantité déjà présente dans le storage et la nouvelle quantité ajoutée, idem pour prix
-                sameProducts.quantity = Number(sameProducts.quantity) + Number(selectedProduct.quantity);
-                sameProducts.price = sameProducts.price + selectedProduct.price;
-            } else {
-                cart.push(selectedProduct);
-            }
-        }
-        // ajoute l'élement dans le localStorage
-        localStorage.setItem("cart", JSON.stringify(cart));
-        }
-      }
 
       const addBasket = document.getElementById("pushProduct")
                                 .addEventListener("click", addToCart(e)); */
