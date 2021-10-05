@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script src="https://kit.fontawesome.com/d85eb10b10.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Passez votre commande - Orinoco" />
+    <title>Orinobois - Panier</title>
+  </head>
+  <body>
+
+    <header>
+		<nav class="menu">
+	    <a href="../index.html">Accueil</a>
+        <a href="./cart.html" id="basket">Panier<span id="basket__compteur"></span></a>
+		
+        </nav>
+</header>
+
+
+
+    <h1 class="main-title">Panier</h1>
+    
+    
+    <div class="custom">
+      <ul class="basket-list"></ul>
+      <strong class="total__price"></strong>
+    </div>
+    <fieldset class="form__container">
+      <h2 class="form-title">Vos coordonnées</h2>
+      <form id="form" class="form" action="http://localhost:3000/api/teddies/order" method="POST">
+        <div class="label-input-container form__first--name">
+          <label for="firstName">Votre Nom</label>
+          <input type="text" name="firstname" id="firstName" maxlength="26" required/>
+          <small></small>
+        </div>
+        <div class="label-input-container form__last--name">
+          <label for="lastName">Votre Prénom</label>
+          <input type="text" name="lastname" id="lastName" maxlength="26" required/>
+          <small></small>
+        </div>
+        <div class="label-input-container form__address">
+          <label for="address">Votre Adresse</label>
+          <input type="text" name="address" id="address" required />
+          <small></small>
+        </div>
+        <div class="label-input-container form__city">
+          <label for="city">Votre Ville</label>
+          <input type="text" name="city" id="city" required />
+          <small></small>
+        </div>
+        <div class="label-input-container form__mail">
+          <label for="mail">Votre Adresse mail</label>
+          <input type="text" name="mail" id="mail" required />
+          <small></small>
+        </div>
+        <div class="submit-btn-container">
+          <input id="form-submit" class="send" type="submit" value="Envoyer" />
+          <small></small>
+        </div>
+      </form>
+    </fieldset>
+
+
+
+    <footer class="footer">
+        <a class="footer__link" href="#">
+            <i class="fa-utensils fas footerlink_icon"></i><p>Politique de confidentialités</p>
+        </a>
+        <a class="footer__link" href="#">
+            <i class="fa-hands-helping fas footerlink_icon"></i><p>Se débarrasser de ses meubles</p>
+        </a>
+        <a class="footer__link" href="#">
+            <i class="fa-balance-scale fas footerlink_icon"></i><p>Mentions légales</p>
+        </a>
+        <a class="footer__link" href="mailto:contact@orinobois.com">
+            <i class="fa-comments fas footer_icon"></i><p>Contact</p>
+        </a>
+</footer>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/cart.js"></script>
+  </body>
+</html>
