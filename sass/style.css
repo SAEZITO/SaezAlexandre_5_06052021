@@ -121,6 +121,26 @@ header .menu a {
   flex-wrap: wrap;
 }
 
+.product {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: nowrap;
+  background-color: aqua;
+  width: 100%;
+}
+.product__img {
+  width: 30rem;
+  max-height: 30rem;
+}
+.product + img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .footer {
   display: flex;
   flex-direction: row;

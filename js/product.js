@@ -99,13 +99,12 @@ request("http://localhost:3000/api/furniture/" + idProduct).then(article => {
                     alert("Vous devez choisir une quantité supérrieure à 0");
                 }else{
 
-    //On les ajoutes à la classe produit puis les envois au local storage
+    //On les ajoutes à la classe produit puis les envoies au local storage
     const selectedProduct = new Product(article._id, article.name, quantity, ((article.price * quantity)/100), selectedVarnish);
                 localStorage.setItem("product", JSON.stringify(selectedProduct));
  
     // on récupère les données du panier, si le panier est vide on l'initialise avec un array vide
- let cart = (JSON.parse(localStorage.getItem("cart"))) || [];
-
+ let cart = JSON.parse(localStorage.getItem("cart")) || [];
  
         if (cart.length == 0) {
         // si le panier est vide, on ajoute le 1er produit
