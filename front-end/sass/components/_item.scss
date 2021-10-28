@@ -1,0 +1,39 @@
+.item {
+    @include flexbox(column, space-around, center, unset);
+    @include layout-cards;
+    margin: 1rem;
+    background-color: $color-secondary;
+    padding: 1rem;
+    width: calc(33% - 6rem);
+    max-height: 25rem;
+    text-align: center;
+    color: $color-primary;
+
+    &__link {
+        &:hover {
+            rotate: 180;
+            transition-duration: 700ms;
+        }
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 1rem 1rem 0 0;
+        position: relative;
+        color: $color-primary;
+    }
+
+    &__title {
+        margin: 0;
+        padding: 0 0 1rem 0;
+    }
+
+    &__picture {
+        max-height: 15rem;
+        margin: 0 1rem;
+        object-fit: cover;
+    }
+    &__price {
+        padding: 1rem;
+        font-size: 2.5rem;
+    }
+}

@@ -1,0 +1,16 @@
+.basket{
+    &__compteur{
+        @include flexbox(unset, center, center, unset);
+        position: absolute;
+        top: 5rem;
+        right: 5rem;
+        width: 2rem;
+        height: 2rem;
+        background-color: $color-tertiary;
+        border-radius: 10rem;
+        color: $color-secondary;
+        font-size: 1.5rem;
+    }
+    
+}
+

@@ -1,0 +1,19 @@
+{
+  "name": "project5",
+  "version": "1.0.0",
+  "description": "site de e-comerce appeler Orinobois",
+  "main": "index.js",
+  "scripts": {
+    "sass":"sass --watch ./sass/style.scss:./css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SAEZITO/SaezAlexandre_5_06052021.git"
+  },
+  "author": "Saezito",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SAEZITO/SaezAlexandre_5_06052021/issues"
+  },
+  "homepage": "https://github.com/SAEZITO/SaezAlexandre_5_06052021#readme"
+}

@@ -1,0 +1,29 @@
+.footer{
+    @include flexbox (row, space-around, center, nowrap);
+    border-radius: 20rem 20rem 0 0;
+    background-color: $color-primary;
+    padding: 2rem;
+    margin: 0;
+
+    &__link {
+    @include flexbox (row, space-between, center, nowrap);
+    @include desktop-only{ 
+        font-size: 1.2rem;
+        margin: 0 1rem ;
+        }
+    font-weight: 500;
+    font-size: 1rem;
+    color: $color-secondary;
+    margin: 1rem 0 0 0;
+    padding: 0;
+        &:hover{
+            @include desktop-only{
+                transform: scale(1.25);
+                transition-duration: 200ms;
+            }
+        }
+        i{
+            margin-right: 2rem;
+        }
+    }
+}

@@ -1,0 +1,147 @@
+.form__container {
+    @include flexbox(column, center, center, nowrap);
+    padding: 0.5rem;
+    border: 0;
+  
+    .form-title {
+      padding: 0.5rem;
+    }
+  
+    .form {
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+  
+      .label-input-container {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        grid-template-rows: repeat(2, auto);
+        grid-template-areas:
+          "label smalltxt ."
+          "input input input";
+      }
+  
+      label {
+        grid-area: label;
+      }
+  
+      input {
+        grid-area: input;
+        height: 30px;
+        margin-bottom: 20px;
+        padding-left: 5px;
+      }
+  
+      small {
+        grid-area: smalltxt;
+        text-align: center;
+        align-self: flex-end;
+        height: 18px;
+      }
+  
+      &[type="number"] {
+        height: 100%;
+      }
+  
+      input:focus,
+      input:active {
+        outline: none;
+        border-color: #926ced;
+      }
+  
+      .submit-btn-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+  
+      .submit-btn-container small {
+        align-self: center;
+        order: 1;
+      }
+  
+      #form-submit {
+        padding: 0px 10px;
+        align-self: center;
+        margin-top: 20px;
+        order: 2;
+      }
+    }
+  }
+  
+  .total__price {
+    display: block;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+  
+  @keyframes inf-rotate {
+    0% {
+      transform: scale(0.5) rotate(0deg);
+    }
+  
+    50% {
+      transform: scale(1) rotate(360deg);
+    }
+    100% {
+      transform: scale(0.5) rotate(720deg);
+    }
+  }
+  
+  .confirm__container {
+    height: 100%;
+    display: flex;
+    gap: 50px;
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    @media screen and (max-width: 700px) {
+      padding-top: 200px;
+    }
+  
+    .main__title{
+      margin-top: 50px;
+    }
+  
+    &::before {
+      animation: inf-rotate 3s linear infinite both;
+      content: "";
+      background-color: hotpink;
+      width: 50px;
+      box-shadow: 0px 0px 5px rgb(82, 82, 82);
+      aspect-ratio: 1/1;
+      position: absolute;
+      top: 100px;
+    }
+  
+    &::after {
+      content: "";
+      animation: inf-rotate 3s linear infinite both;
+      background-color: black;
+      width: 10px;
+      aspect-ratio: 1/1;
+      position: absolute;
+      top: 120px;
+    }
+  
+    article {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    article h2{
+      padding-bottom: 50px;
+    }
+  
+    .btn-home {
+      padding: 10px 20px;
+      box-shadow: 0px 0px 5px rgb(48, 48, 48);
+    }
+  }
+  
