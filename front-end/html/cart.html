@@ -30,32 +30,31 @@
   <div class="page-container">
 
     <main class="main" id="main">
-        <h1 class="main__title"> Voici les meubles que vous avez choisis : </h1>
-        <div class="main__body" id="mainBody">
+      <h1 class="main__title" id="pageTitle"> Voici les meubles que vous avez choisis : </h1>
+      <div class="main__body" id="mainBody">
 
-        </div>
-
+      </div>
+      <div class="main__footer" id="cartResume">
+        <p class="total__price">Le montant total total de votre panier est de : 
+          <strong id="totalPrice"></strong><strong> .00 € </strong></p>
+        <p>Appuyez ici pour vider votre panier : </p>
+        <button type="submit" class="delete__basket--all" id="deleteAllCart"><i class="fas fa-trash-alt"></i></button>
+      </div>
     </main>
 
-</div>
-
-
-  <div class="custom">
-    <ul id="basket-list"></ul>
-    <p><strong id="total__price"></strong> .00 € </p>
   </div>
 
 
   <fieldset class="form__container">
-    <h2 class="form-title">Vos coordonnées</h2>
+    <h2 class="form__title">Vos coordonnées</h2>
     <form id="form" class="form">
       <div class="label-input-container form__first--name">
         <label for="firstName">Votre Nom</label>
-        <input type="textarea" name="firstname" id="firstName" maxlength="26" placeholder="nom" required />
+        <input type="textarea" name="firstname" id="firstName" maxlength="20" placeholder="nom" required />
       </div>
       <div class="label-input-container form__last--name">
         <label for="lastName">Votre Prénom</label>
-        <input type="text" name="lastname" id="lastName" maxlength="26" placeholder="prenom" required />
+        <input type="text" name="lastname" id="lastName" maxlength="25" placeholder="prenom" required />
       </div>
       <div class="label-input-container form__address">
         <label for="address">Votre Adresse</label>
@@ -69,7 +68,7 @@
         <label for="mail">Votre Adresse mail</label>
         <input type="email" name="mail" id="mail" placeholder="email" required />
       </div>
-      <div class="submit-btn-container">
+      <div class="submit-btn">
         <button id="form-submit" class="send" type="submit">Envoyez</button>
       </div>
     </form>

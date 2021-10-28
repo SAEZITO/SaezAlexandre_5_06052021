@@ -42,7 +42,7 @@ const request = async (url) => {
 //Calcule le prix du produit en fonction de la qantité
 const totalProductPrice = (data) => {
   if ( (data.length === 0) || (!data?.price && !data?.quantity)){
-    console.log("data is empty");
+    console.error("data is empty");
     return ;
   }
   let totalPrice = 0;
@@ -52,6 +52,7 @@ const totalProductPrice = (data) => {
 
 // Calcule le prix total des articles du panier
 const totalCartPrice = (data) => {
+  console.log(data);
   if (data.length === 0){
     console.error("data is empty");
     return ;
@@ -63,21 +64,15 @@ const totalCartPrice = (data) => {
   return totalPrice;
 }
 
-
-
 //Permet de supprimer le produit du panier
-const deleteProduct = (data, cart) => {
-  if (data.length === 0){
+const deleteProduct = (data) => {
+  if (!data){
     console.error("data is empty");
     return ;
   }
-  for (product of cart){
-    if (data.id === product.id){
-      delete cart.product;
-    }
-  }
- return cart;
+  console.log(localCart);
 }
+
 //Permet de modifier la quantité d'un objet dans le panier
 const basketPorductQuantity = (data, cart) => {
   if (data.length === 0){
@@ -102,7 +97,7 @@ const basketCompteur = (data) => {
   for (product of data) {
     compteur ++
   }
-  document.getElementById("basket__compteur").innerHTML = compteur;
+  document.getElementById("basketCompteur").textContent = compteur;
   return;
 
 }

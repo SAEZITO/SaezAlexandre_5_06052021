@@ -1,5 +1,5 @@
 .main {
-    @include flexbox(row, unset, center, wrap);
+    @include flexbox(row, center, center, wrap);
     &__title {
         margin: 2rem 0 1rem 0;
         width: 100%;
@@ -7,5 +7,10 @@
     &__body {
         @include flexbox(row, center, center, wrap);
         width: 100%;
+    }
+    &__footer {
+        @include flexbox(column, center, center, wrap);
+        width: 100%;
+        font-size: 1.7rem;
     }
 }

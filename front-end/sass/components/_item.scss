@@ -1,5 +1,5 @@
 .item {
-    @include flexbox(column, space-around, center, unset);
+    @include flexbox(column, space-around, center, wrap);
     @include layout-cards;
     margin: 1rem;
     background-color: $color-secondary;

@@ -1,4 +1,4 @@
-
+const localCart = JSON.parse(localStorage.getItem("cart"));
 
 const createListingTpl = (products) => {
   if (products?.length === 0) {
@@ -20,4 +20,8 @@ const createListingTpl = (products) => {
 
 request(apiFurniture).then(articles => {
   document.getElementById("mainBody").innerHTML = createListingTpl(articles);
-})
+});
+
+if (localCart){
+  basketCompteur(localCart);
+  }

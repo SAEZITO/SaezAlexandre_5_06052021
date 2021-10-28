@@ -76,11 +76,8 @@ request(apiFurniture + idProduct).then(article => {
                 // ajoute l'élement dans le localStorage
                 localStorage.setItem("cart", JSON.stringify(cart));
             }
+            //ajout dun visuel du nombre d'articles dans le panier
+            basketCompteur(cart);
+            console.log(localStorage.getItem("cart"));
         });
-
 });
-
-//Ajout d'un compteur au panier pour un effet plus visuel    
-const basketCompt = basketCompteur(cart);
-document.getElementById("basket__compteur").textContent = basketCompt;
-console.log(basketCompt);
