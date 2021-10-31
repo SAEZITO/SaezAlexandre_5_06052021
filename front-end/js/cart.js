@@ -23,7 +23,7 @@ const cartTpl = (data) => {
                 <input class="item__quantity quantity" name="quantity" type="number" min="1" max="99" value="${product.quantity}">
                 <p class="item__varnish itemVarnish">${product.varnish}</p>
                 <span class="item__total">Prix: <strong class="price-qty">${(product.price / 100) * product.quantity} .00</strong> €</span>
-                <i class="fas fa-trash-alt"><button onclick="deleteProduct(${product.id}) class="deleteProduct"></i>
+                <i class="fas fa-trash-alt"><button onclick="deleteProduct(${product.id})" class="deleteProduct"></i>
             </div>`;
   }
   return tpl;
@@ -36,7 +36,7 @@ if (localCart) {
 }
 
 
-//totalPrice.textContent = totalCartPrice(localCart);
+totalPrice.textContent = totalCartPrice(localCart);
 
 
 deleteCart.addEventListener("click", (e) => {

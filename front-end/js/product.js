@@ -1,3 +1,23 @@
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+
+let selectedProduct = new Product();
+
+ //Fonction d'ajout du produit au panier
+ const addProduct = () => {
+    // on récupère les valeurs demandées à l'utilisateur
+    const selectedVarnish = document.getElementById("varnishList").value;
+    const quantity = document.getElementById("productQuantity");
+    if (!quantity.checkValidity()) {
+        alert("Vous devez choisir une quantité supérrieure à 0 et inférieure à 100");
+    } else {
+        selectedProduct.quantity = quantity.value;
+        selectedProduct.varnish = selectedVarnish;
+    }
+    console.log(selectedProduct);
+    checkCart(selectedProduct, cart);
+    console.log(cart);
+}
 
 // Creation du contenu html pour afficher la fiche produit
 const createProductTpl = (article) => {
@@ -27,57 +47,27 @@ const createProductTpl = (article) => {
     tpl +=
         `</select>
               <label> Quantité : <input id="productQuantity" type="number" min="1" max="99" step="1" value="1"/></label> 
-                    <button type="button" name="add" id="pushProduct" class="selection__varnish--btn">Ajouter au panier</button>
+                    <button type="button" name="addProduct" onclick="addProduct()" class="selection__varnish--btn">Ajouter au panier</button>
                     </div>
                 </div>
                 `
     return tpl;
 }
 
-// on récupère les données du panier, si le panier est vide on l'initialise avec un array vide
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-
 request(apiFurniture + idProduct).then(article => {
     // affichage de la fiche produit       
     document.getElementById("mainBody").innerHTML = createProductTpl(article);
-
-    //Ecoute de l'evenement pour envoie dans le panier
-    document.getElementById("pushProduct")
-        .addEventListener("click", (e) => {
-            e.preventDefault()
-            // on récupère les valeurs du produit choisi par l'utilisateur
-            let selectedVarnish = document.querySelector("select").value;
-            let quantity = document.getElementById("productQuantity");
-            if (!quantity.checkValidity()) {
-                alert("Vous devez choisir une quantité supérrieure à 0 et inférieure à 100");
-            } else {
-                //On les ajoutes à la classe produit puis les envoies au local storage
-                const selectedProduct = new Product(article._id, article.name, quantity.value, article.price, selectedVarnish, article.imageUrl);
-                localStorage.setItem("product", JSON.stringify(selectedProduct));
-
-
-                if (cart.length == 0) {
-                    // si le panier est vide, on ajoute le 1er produit
-                    cart.push(selectedProduct);
-                } else {
-                    // sinon verifier si le produit selectionné existe déjà dans le localStorage pour accumuler les quantités
-
-                    const sameProducts = cart.find(product => (product._id === selectedProduct._id) && (product.varnish === selectedProduct.varnish));
-
-                    if (sameProducts) {
-                        // quantité des produits calculée en additionnant la quantité déjà présente dans le storage et la nouvelle quantité ajoutée
-                        sameProducts.quantity = Number(sameProducts.quantity) + Number(selectedProduct.quantity);
-                    } else {
-                        cart.push(selectedProduct);
-                    }
-                }
-
-                // ajoute l'élement dans le localStorage
-                localStorage.setItem("cart", JSON.stringify(cart));
-            }
-            //ajout dun visuel du nombre d'articles dans le panier
-            basketCompteur(cart);
-            console.log(localStorage.getItem("cart"));
-        });
+    selectedProduct.id = article._id;
+    selectedProduct.name = article.name;
+    selectedProduct.price = article.price;
+    selectedProduct.image = article.imageUrl;
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("le doc a bien chargé");
+  
+    console.log(cart);
+   
+});
+    
