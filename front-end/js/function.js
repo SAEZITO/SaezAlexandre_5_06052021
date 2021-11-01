@@ -19,13 +19,10 @@ class User {
   }
 }
 
-// Adresse de l'api qui va permettre de comuniquer avec le back
 const apiFurniture = "http://localhost:3000/api/furniture/";
 
-// récupération de l'id du produit dans l'url
 const idProduct = window.location.search.slice(4);
 
-//Fonction de récupération des données de l'api
 const request = async (url) => {
   return fetch(url)
     .then((res) => {
@@ -36,7 +33,7 @@ const request = async (url) => {
       console.error(error);
     });
 };
-//Fonction d'envoie des informations vers l'api et recupére la réponse
+
 const postData = async (url, userInfo, cart) => {
   const postData = { contact: userInfo, products: cart };
   return await fetch(url, {
@@ -51,7 +48,6 @@ const postData = async (url, userInfo, cart) => {
   });
 };
 
-//Calcule le prix du produit en fonction de la qantité
 const totalProductPrice = (data) => {
   if (data.length === 0 || (!data?.price && !data?.quantity)) {
     console.error("data is empty");
@@ -62,7 +58,6 @@ const totalProductPrice = (data) => {
   return totalPrice;
 };
 
-// Calcule le prix total des articles du panier
 const totalCartPrice = (data) => {
   console.log(data);
   if (data.length === 0) {
@@ -76,7 +71,6 @@ const totalCartPrice = (data) => {
   return totalPrice;
 };
 
-//Permet de modifier la quantité d'un objet dans le panier
 const basketPorductQuantity = (data, cart) => {
   if (data.length === 0) {
     console.error("data is empty");
@@ -90,7 +84,6 @@ const basketPorductQuantity = (data, cart) => {
   return localStorage.setItem("cart", JSON.stringify(cart));
 };
 
-//Compteur qui permet de connaitre le nombre total d'articles différents dans le panier et de l'afficher
 const basketCompteur = (data) => {
   if (data.length === 0) {
     console.error("data is empty");
@@ -104,20 +97,17 @@ const basketCompteur = (data) => {
   return;
 };
 
-//fonction pour tester si produits deja dans panier et mettre panier dans localstorage
 const checkCart = (selectedProduct, cart) => {
   if (cart.length === 0) {
     console.error("le panier est vide, impossible de vérifier le panier");
     return;
   } else {
-    // sinon verifier si le produit selectionné existe déjà
     let sameProduct = cart.find(
       (product) =>
         product.id === selectedProduct.id &&
         product.varnish === selectedProduct.varnish
     );
     if (sameProduct) {
-      // quantité des produits calculée en additionnant la quantité déjà présente dans le storage et la nouvelle quantité ajoutée
       sameProduct.quantity =
         Number(sameProduct.quantity) + Number(selectedProduct.quantity);
     } else {

@@ -295,9 +295,14 @@ h3 {
   color: #FD7627;
 }
 .cart__item__picture {
-  max-height: 15rem;
+  height: 10rem;
+  width: 20rem;
   margin: 0 1rem;
   object-fit: cover;
+}
+.cart__item__picture img {
+  width: 100%;
+  height: 100%;
 }
 .cart__item__descript {
   display: flex;

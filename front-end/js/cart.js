@@ -1,3 +1,13 @@
+document.addEventListener("DOMContentLoaded", function () {
+  if (localCart) {
+    cart.innerHTML = cartTpl(localCart);
+    basketCompteur(localCart);
+    totalPrice.textContent = totalCartPrice(localCart);
+  } else {
+    cartInfo.innerHTML = " ";
+    title.textContent = `Votre panier est vide, veuillez choisir un article sur la page d'accueil.`;
+  }
+});
 const form = document.getElementById("form");
 const cart = document.getElementById("mainBody");
 const cartInfo = document.getElementById("cartResume");
@@ -12,15 +22,14 @@ let city = document.getElementById("city");
 let mail = document.getElementById("mail");
 let i = 0;
 
-// Permet l'affichage des produits du panier
 const cartTpl = (data) => {
   let tpl = "";
   for (product of data) {
     tpl += `
             <div class="cart__item" id="item${i}">
-            <img class="cart__item__picture" alt="meuble en bois ${
-              product.name
-            }"src="${product.image}">
+            <div class="cart__item__picture">    
+            <img alt="meuble en bois ${product.name}"src="${product.image}">
+            </div>
             <h2 class="cart__item__title">${product.name}</h2>
             <div class="cart__item__descript">    
             <label class="cart__item__quantity-label" for="quantity-${
@@ -41,22 +50,6 @@ const cartTpl = (data) => {
   i++;
   return tpl;
 };
-if (localCart) {
-  cart.innerHTML = cartTpl(localCart);
-  basketCompteur(localCart);
-  totalPrice.textContent = totalCartPrice(localCart);
-} else {
-  cartInfo.innerHTML = " ";
-  title.textContent = `Votre panier est vide, veuillez choisir un article sur la page d'accueil.`;
-}
-
-deleteCart.addEventListener("click", (e) => {
-  e.preventDefault();
-  localStorage.clear();
-  cart.innerHTML = " ";
-  cartInfo.innerHTML = " ";
-  title.textContent = `Vous venez de vider votre panier.`;
-});
 
 document.getElementById("form-submit").addEventListener("click", (e) => {
   e.preventDefault();
@@ -70,7 +63,6 @@ document.getElementById("form-submit").addEventListener("click", (e) => {
 
   const cartIds = localCart.map((product) => product.id);
 
-  //Controler le formulaire avant envoie
   if (
     firstName.checkValidity() &&
     lastName.checkValidity() &&
@@ -96,6 +88,14 @@ document.getElementById("form-submit").addEventListener("click", (e) => {
         console.log(error);
       });
   }
+});
+
+deleteCart.addEventListener("click", (e) => {
+  e.preventDefault();
+  localStorage.clear();
+  cart.innerHTML = " ";
+  cartInfo.innerHTML = " ";
+  title.textContent = `Vous venez de vider votre panier.`;
 });
 
 const deleteProduct = (i) => {
