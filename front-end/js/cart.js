@@ -18,21 +18,24 @@ const cartTpl = (data) => {
   for (product of data) {
     tpl += `
             <div class="cart__item" id="item${i}">
+            <img class="cart__item__picture" alt="meuble en bois ${
+              product.name
+            }"src="${product.image}">
             <h2 class="cart__item__title">${product.name}</h2>
-                <img class="cart__item__picture" alt="meuble en bois ${
-                  product.name
-                }"src="${product.image}">
-                <label class="cart__item__quantity-label" for="quantity-${
-                  product.quantity
-                }">Quantité</label>
+            <div class="cart__item__descript">    
+            <label class="cart__item__quantity-label" for="quantity-${
+              product.quantity
+            }">Quantité</label>
                 <p>${product.quantity}</p>
+                <label class="cart__item__quantity-label" for="itemVarnish">Vernis : </label>
                 <p class="cart__item__varnish itemVarnish">${
                   product.varnish
                 }</p>
                 <span class="cart__item__total">Prix: <strong class="price-qty">${
                   (product.price / 100) * product.quantity
                 } .00</strong> €</span>
-                // <i class="fas fa-trash-alt"><button onclick="deleteProduct(${i})" class"deleteProduct"></i>
+               <button onclick="deleteProduct(${i})" class"deleteProduct"><i class="fas fa-trash-alt"></i></button>
+            </div>
             </div>`;
   }
   i++;

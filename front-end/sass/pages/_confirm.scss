@@ -1,0 +1,11 @@
+.confirm {
+    @include layout-cards;
+    @include flexbox(column, space-between, center, nowrap);
+    background-color: $color-secondary;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    text-align: center;
+    color: $color-primary;
+    min-height: 20rem;
+    font-size: 1.7rem;
+}
