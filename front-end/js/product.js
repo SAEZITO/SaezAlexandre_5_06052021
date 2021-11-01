@@ -20,12 +20,13 @@ const createProductTpl = (article) => {
                   article.imageUrl
                 }"><img class="product__picture" src="${article.imageUrl}"></a>
                        
-                       <p class="product__price">${article.price / 100}.00€</p>
+                       <p class="product__price">Prix : </br> ${
+                         article.price / 100
+                       }.00€</p>
                        <p class="product__stock"> En stock </p>
                        <p class="product__descript">${article.description}</p>
-
                        <div class="product__selection">
-                     <select class="selection__varnish" id="varnishList">`;
+                       <label>Vernis :</label><select class="selection__varnish" id="varnishList">`;
 
   for (let varnish of article.varnish) {
     tpl += `
@@ -34,7 +35,7 @@ const createProductTpl = (article) => {
   }
 
   tpl += `</select>
-  <label> Quantité : <input id="productQuantity" type="number" min="1" max="99" step="1" value="1"/></label> 
+  <label> Quantité : </label> <input id="productQuantity" type="number" min="1" max="99" step="1" value="1"/>
   <button type="button" name="addProduct" onclick="addProduct()" class="selection__varnish--btn">Ajouter au panier</button>
   </div>
   </div>

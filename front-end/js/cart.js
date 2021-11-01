@@ -87,6 +87,8 @@ document.getElementById("form-submit").addEventListener("click", (e) => {
       .catch((error) => {
         console.log(error);
       });
+  } else {
+    alert("Vous devez remplir correctement le formulaire de contact");
   }
 });
 

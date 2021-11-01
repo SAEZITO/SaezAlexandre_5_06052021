@@ -2,83 +2,90 @@
 <html lang="Fr">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="description"
-        content="Orinobois est un site de vente de meubles en bois personnalisables et vendus partout en France.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <link rel="shortcut icon" type="" href="">
-    <link rel="stylesheet" href="../css/style.css">
-    <script src="https://kit.fontawesome.com/32706c31d2.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Shrikhand&display=swap"
-        rel="stylesheet">
-    <title>Orinobois - Panier</title>
+  <meta charset="utf-8" />
+  <meta name="description"
+    content="Orinobois est un site de vente de meubles en bois personnalisables et vendus partout en France." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <link rel="shortcut icon" type="" href="" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="https://kit.fontawesome.com/32706c31d2.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Shrikhand&display=swap"
+    rel="stylesheet" />
+  <title>Orinobois - Panier</title>
 </head>
 
 <body>
-
   <header class="head">
     <div class="head__logo">
-        <img src="../images/logoOrinobois.svg" alt="logo Orinobois, site de vente de meubles en bois de chêne"
-            class="logo">
-        <h2>Orinobois</h2>
+      <img src="../images/logoOrinobois.svg" alt="logo Orinobois, site de vente de meubles en bois de chêne"
+        class="logo" />
+      <h2>Orinobois</h2>
     </div>
     <nav class="head__menu">
-        <a href="../index.html">Accueil</a>
-        <a href="./cart.html" id="basket"><i class="fas fa-shopping-cart"></i>
-            <span id="basketCompteur" class="basket__compteur"> 0 </span></a>
+      <a href="../index.html">Accueil</a>
+      <a href="./cart.html" id="basket"><i class="fas fa-shopping-cart"></i>
+        <span id="basketCompteur" class="basket__compteur"> 0 </span></a>
     </nav>
-</header>
+  </header>
 
   <div class="page-container">
-
     <main class="main" id="main">
-      <h1 class="main__title" id="pageTitle"> Voici les meubles que vous avez choisis : </h1>
-      <div class="main__body" id="mainBody">
-
-      </div>
+      <h1 class="main__title" id="pageTitle">
+        Voici les meubles que vous avez choisis :
+      </h1>
+      <div class="main__body" id="mainBody"></div>
       <div class="main__footer" id="cartResume">
-        <p class="total__price">Le montant total total de votre panier est de : 
-          <strong id="totalPrice"></strong><strong> .00 € </strong></p>
-        <p>Appuyez ici pour vider votre panier : </p>
-        <button type="submit" class="delete__basket--all" id="deleteAllCart"><i class="fas fa-trash-alt"></i></button>
+        <p class="total__price">
+          Le montant total total de votre panier est de :
+          <strong id="totalPrice"></strong><strong> .00 € </strong>
+        </p>
+        <p class="clean__cart">
+          Appuyez ici pour vider votre panier :
+          <button type="submit" class="delete__basket--all" id="deleteAllCart">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </p>
       </div>
     </main>
-
   </div>
 
-
   <fieldset class="form__container">
-    <h2 class="form__title">Vos coordonnées</h2>
+    <h2 class="form__title">
+      Entrez vos coordonnées pour valider la commande.
+    </h2>
     <form id="form" class="form">
-      <div class="label-input-container form__first--name">
-        <label for="firstName">Votre Nom</label>
-        <input type="textarea" name="firstname" id="firstName" maxlength="20" placeholder="nom" required />
+      <div class="input first--name">
+        <label for="firstName">Votre Nom :
+          <input type="textarea" name="firstname" id="firstName" maxlength="20" placeholder="nom" required />
+        </label>
       </div>
-      <div class="label-input-container form__last--name">
-        <label for="lastName">Votre Prénom</label>
-        <input type="text" name="lastname" id="lastName" maxlength="25" placeholder="prenom" required />
+      <div class="input last--name">
+        <label for="lastName">Votre Prénom :
+          <input type="text" name="lastname" id="lastName" maxlength="25" placeholder="prenom" required />
+        </label>
       </div>
-      <div class="label-input-container form__address">
-        <label for="address">Votre Adresse</label>
-        <input type="adress" name="address" id="adress" placeholder="adress" required />
+      <div class="input mail">
+        <label for="mail">Votre Mail :
+          <input type="email" name="mail" id="mail" placeholder="email" required />
+        </label>
       </div>
-      <div class="label-input-container form__city">
-        <label for="city">Votre Ville</label>
-        <input type="adress" name="city" id="city" placeholder="city" required />
+      <div class="input address">
+        <label for="address">Votre Adresse :
+          <input type="adress" name="address" id="adress" placeholder="adresse" required />
+        </label>
       </div>
-      <div class="label-input-container form__mail">
-        <label for="mail">Votre Adresse mail</label>
-        <input type="email" name="mail" id="mail" placeholder="email" required />
+      <div class="input city">
+        <label for="city">Votre Ville :
+          <input type="adress" name="city" id="city" placeholder="city" required />
+        </label>
       </div>
       <div class="submit-btn">
         <button id="form-submit" class="send" type="submit">Envoyez</button>
       </div>
     </form>
   </fieldset>
-
-
 
   <footer class="footer">
     <a class="footer__link" href="#">

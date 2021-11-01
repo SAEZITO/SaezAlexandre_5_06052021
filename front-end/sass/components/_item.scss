@@ -8,13 +8,13 @@
     max-height: 25rem;
     text-align: center;
     color: $color-primary;
+    &:hover {
+        transform: scale(1.1);
+        transform-origin: 300ms;
+    }
 
     &__link {
-        &:hover {
-            rotate: 180;
-            transition-duration: 700ms;
-        }
-        height: 100%;
+        ight: 100%;
         width: 100%;
         object-fit: cover;
         border-radius: 1rem 1rem 0 0;

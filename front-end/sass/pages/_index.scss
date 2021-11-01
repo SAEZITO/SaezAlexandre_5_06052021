@@ -14,3 +14,26 @@
         font-size: 1.7rem;
     }
 }
+
+.total__price {
+    display: block;
+    text-align: center;
+    font-size: 1.9rem;
+    padding: 0.5rem;
+    margin-top: 1rem;
+}
+
+.clean__cart {
+    @include flexbox(row, center, center, nowrap);
+    margin: 1rem;
+    font-size: 1.9rem;
+    & button {
+        margin: 1rem;
+        padding: 0.5rem;
+        margin: 1rem;
+        padding: 0.5rem;
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.5rem;
+    }
+}
