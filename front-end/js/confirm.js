@@ -6,4 +6,5 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("numerocmd").textContent = orderInfo.orderId;
   document.getElementById("pricecmd").textContent = orderInfo.totalPrice;
   localStorage.removeItem("cart");
+  localStorage.removeItem("order");
 });

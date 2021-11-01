@@ -53,10 +53,20 @@
     width: 100%;
     text-align: center;
   }
-  #form-submit {
-    @include layout-cards;
-    font-size: 1.3rem;
-    padding: 0.5rem;
-    margin-top: 1rem;
+  .send {
+    &-btn {
+      &:hover {
+        color: $color-tertiary;
+        background-color: lighten($color-primary, 20%);
+      }
+      @include layout-cards;
+      font-family: "Shrikhand";
+      font-size: 1.5rem;
+      background-color: $color-primary;
+      color: $color-secondary;
+      min-width: 50%;
+      padding: 0.5rem;
+      margin: 0.5rem;
+    }
   }
 }

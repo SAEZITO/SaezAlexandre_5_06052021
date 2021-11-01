@@ -39,11 +39,11 @@
       <div class="main__footer" id="cartResume">
         <p class="total__price">
           Le montant total total de votre panier est de :
-          <strong id="totalPrice"></strong><strong> .00 € </strong>
+          <strong id="totalPrice">00</strong><strong> .00 € </strong>
         </p>
         <p class="clean__cart">
           Appuyez ici pour vider votre panier :
-          <button type="submit" class="delete__basket--all" id="deleteAllCart">
+          <button type="submit" class="delete__basket--all" onclick="deleteCart()">
             <i class="fas fa-trash-alt"></i>
           </button>
         </p>
@@ -82,7 +82,7 @@
         </label>
       </div>
       <div class="submit-btn">
-        <button id="form-submit" class="send" type="submit">Envoyez</button>
+        <button id="form-submit" class="send-btn" type="submit">Envoyez</button>
       </div>
     </form>
   </fieldset>

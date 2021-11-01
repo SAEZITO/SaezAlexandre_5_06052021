@@ -16,14 +16,18 @@ body {
   text-align: center;
 }
 
-a:link, a:visited, a {
+a:link,
+a:visited,
+a {
   text-decoration: none;
   cursor: pointer;
 }
 
-a, p {
+a,
+p {
   margin: 0;
   padding: 0;
+  font-size: 1.3rem;
 }
 
 body {
@@ -140,7 +144,7 @@ h3 {
 }
 .item__picture {
   max-height: 15rem;
-  margin: 0 1rem;
+  margin: 0;
   object-fit: cover;
 }
 .item__price {
@@ -275,8 +279,7 @@ h3 {
   padding: 2rem;
   margin: 1rem auto 2rem auto;
   color: #FD7627;
-  max-width: 80%;
-  max-height: 50rem;
+  width: calc(100% - 5rem);
 }
 .product__title {
   width: 100%;
@@ -286,27 +289,37 @@ h3 {
 }
 .product__picture {
   object-fit: cover;
-  margin: 0;
+  margin: 0 0 1rem 0;
   padding: 0;
   max-height: 20rem;
+  width: 100%;
 }
 .product__price {
   font-size: 1.7rem;
+  max-width: 40%;
+}
+.product__description {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .product__descript {
-  max-width: 25%;
+  width: 90%;
   margin: 0.5rem;
   font-size: 1.7rem;
 }
 .product__stock {
   font-size: 2rem;
+  max-width: 40%;
 }
 .product__selection {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   width: 100%;
   font-size: 1.5rem;
   margin: 2rem 0 0 0;
@@ -314,7 +327,23 @@ h3 {
   text-align: center;
 }
 .product__selection label {
-  margin-right: 1rem;
+  margin: 1rem;
+}
+.product__selection-btn {
+  border-radius: 2rem;
+  box-shadow: 0px 4px 7px 1px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  font-family: "Shrikhand";
+  font-size: 1.7rem;
+  background-color: #FD7627;
+  color: #6E0000;
+  min-width: 50%;
+  padding: 1rem;
+  margin: 0.5rem;
+}
+.product__selection-btn:hover {
+  color: #996E00;
+  background-color: #feb68c;
 }
 
 .cart__item {
@@ -333,6 +362,7 @@ h3 {
   max-height: 25rem;
   text-align: center;
   color: #FD7627;
+  font-size: 1.5rem;
 }
 .cart__item__picture {
   height: 10rem;
@@ -426,13 +456,21 @@ h3 {
   width: 100%;
   text-align: center;
 }
-.form #form-submit {
+.form .send-btn {
   border-radius: 2rem;
   box-shadow: 0px 4px 7px 1px rgba(0, 0, 0, 0.2);
   background-color: white;
-  font-size: 1.3rem;
+  font-family: "Shrikhand";
+  font-size: 1.5rem;
+  background-color: #FD7627;
+  color: #6E0000;
+  min-width: 50%;
   padding: 0.5rem;
-  margin-top: 1rem;
+  margin: 0.5rem;
+}
+.form .send-btn:hover {
+  color: #996E00;
+  background-color: #feb68c;
 }
 
 .confirm {

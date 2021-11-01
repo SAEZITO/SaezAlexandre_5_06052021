@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
 const form = document.getElementById("form");
 const cart = document.getElementById("mainBody");
 const cartInfo = document.getElementById("cartResume");
-const deleteCart = document.getElementById("deleteAllCart");
 const totalPrice = document.getElementById("totalPrice");
 const title = document.getElementById("pageTitle");
 let localCart = JSON.parse(localStorage.getItem("cart"));
@@ -46,8 +45,8 @@ const cartTpl = (data) => {
                <button onclick="deleteProduct(${i})" class"deleteProduct"><i class="fas fa-trash-alt"></i></button>
             </div>
             </div>`;
+    i++;
   }
-  i++;
   return tpl;
 };
 
@@ -92,19 +91,23 @@ document.getElementById("form-submit").addEventListener("click", (e) => {
   }
 });
 
-deleteCart.addEventListener("click", (e) => {
-  e.preventDefault();
+const deleteCart = () => {
   localStorage.clear();
-  cart.innerHTML = " ";
+  cart.innerHTML =
+    "<p>Veuillez retourner sur la page d'accueil afin de selectionner un produit . </p>";
   cartInfo.innerHTML = " ";
   title.textContent = `Vous venez de vider votre panier.`;
-});
+};
 
 const deleteProduct = (i) => {
+  console.log(i);
   const product = document.getElementById("item" + i);
   product.remove();
-  localCart.splice(i, 1);
-  localStorage.setItem("cart", JSON.stringify(localCart));
-  basketCompteur(localCart);
-  totalPrice.textContent = totalCartPrice(localCart);
+  if (localCart.length === 1) {
+    deleteCart();
+  } else {
+    localCart.splice(i, 1);
+    localStorage.setItem("cart", JSON.stringify(localCart));
+    window.location.reload();
+  }
 };

@@ -49,7 +49,7 @@ const postData = async (url, userInfo, cart) => {
 };
 
 const totalProductPrice = (data) => {
-  if (data.length === 0 || (!data?.price && !data?.quantity)) {
+  if (data.length === 0 || !data?.price && !data?.quantity) {
     console.error("data is empty");
     return;
   }
