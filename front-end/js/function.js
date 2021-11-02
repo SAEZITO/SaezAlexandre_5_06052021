@@ -24,7 +24,7 @@ const apiFurniture = "http://localhost:3000/api/furniture/";
 const idProduct = window.location.search.slice(4);
 
 const request = async (url) => {
-  return fetch(url)
+  return await fetch(url)
     .then((res) => {
       console.log(res);
       return res.json();
@@ -44,18 +44,9 @@ const postData = async (url, userInfo, cart) => {
     },
     body: JSON.stringify(postData),
   }).then((response) => {
+    console.log(response);
     return response.json();
   });
-};
-
-const totalProductPrice = (data) => {
-  if (data.length === 0 || !data?.price && !data?.quantity) {
-    console.error("data is empty");
-    return;
-  }
-  let totalPrice = 0;
-  totalPrice = (data.price * data.quantity) / 100;
-  return totalPrice;
 };
 
 const totalCartPrice = (data) => {
@@ -71,17 +62,14 @@ const totalCartPrice = (data) => {
   return totalPrice;
 };
 
-const basketPorductQuantity = (data, cart) => {
-  if (data.length === 0) {
+const totalProductPrice = (data) => {
+  if (data.length === 0 || (!data?.price && !data?.quantity)) {
     console.error("data is empty");
     return;
   }
-  for (product of cart) {
-    if (data.id === product.id) {
-      product.quantity = data.quantity;
-    }
-  }
-  return localStorage.setItem("cart", JSON.stringify(cart));
+  let totalPrice = 0;
+  totalPrice = (data.price * data.quantity) / 100;
+  return totalPrice;
 };
 
 const basketCompteur = (data) => {

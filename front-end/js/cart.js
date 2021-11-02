@@ -97,6 +97,7 @@ const deleteCart = () => {
     "<p>Veuillez retourner sur la page d'accueil afin de selectionner un produit . </p>";
   cartInfo.innerHTML = " ";
   title.textContent = `Vous venez de vider votre panier.`;
+  document.getElementById("basketCompteur").textContent = "0";
 };
 
 const deleteProduct = (i) => {
