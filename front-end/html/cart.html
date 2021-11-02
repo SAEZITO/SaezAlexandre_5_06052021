@@ -38,7 +38,7 @@
       <div class="main__body" id="mainBody"></div>
       <div class="main__footer" id="cartResume">
         <p class="total__price">
-          Le montant total total de votre panier est de :
+          Le montant total de votre panier est de :
           <strong id="totalPrice">00</strong><strong> .00 € </strong>
         </p>
         <p class="clean__cart">
@@ -49,44 +49,44 @@
         </p>
       </div>
     </main>
+
+
+    <fieldset class="form__container">
+      <h2 class="form__title">
+        Entrez vos coordonnées pour valider la commande.
+      </h2>
+      <form id="form" class="form">
+        <div class="input first--name">
+          <label for="firstName">Votre Nom :
+            <input type="textarea" name="firstname" id="firstName" maxlength="20" placeholder="nom" required />
+          </label>
+        </div>
+        <div class="input last--name">
+          <label for="lastName">Votre Prénom :
+            <input type="text" name="lastname" id="lastName" maxlength="25" placeholder="prenom" required />
+          </label>
+        </div>
+        <div class="input mail">
+          <label for="mail">Votre Mail :
+            <input type="email" name="mail" id="mail" placeholder="email" required />
+          </label>
+        </div>
+        <div class="input address">
+          <label for="address">Votre Adresse :
+            <input type="adress" name="address" id="adress" placeholder="adresse" required />
+          </label>
+        </div>
+        <div class="input city">
+          <label for="city">Votre Ville :
+            <input type="adress" name="city" id="city" placeholder="Ville" required />
+          </label>
+        </div>
+        <div class="submit-btn">
+          <button id="form-submit" class="send-btn" type="submit">Envoyez</button>
+        </div>
+      </form>
+    </fieldset>
   </div>
-
-  <fieldset class="form__container">
-    <h2 class="form__title">
-      Entrez vos coordonnées pour valider la commande.
-    </h2>
-    <form id="form" class="form">
-      <div class="input first--name">
-        <label for="firstName">Votre Nom :
-          <input type="textarea" name="firstname" id="firstName" maxlength="20" placeholder="nom" required />
-        </label>
-      </div>
-      <div class="input last--name">
-        <label for="lastName">Votre Prénom :
-          <input type="text" name="lastname" id="lastName" maxlength="25" placeholder="prenom" required />
-        </label>
-      </div>
-      <div class="input mail">
-        <label for="mail">Votre Mail :
-          <input type="email" name="mail" id="mail" placeholder="email" required />
-        </label>
-      </div>
-      <div class="input address">
-        <label for="address">Votre Adresse :
-          <input type="adress" name="address" id="adress" placeholder="adresse" required />
-        </label>
-      </div>
-      <div class="input city">
-        <label for="city">Votre Ville :
-          <input type="adress" name="city" id="city" placeholder="city" required />
-        </label>
-      </div>
-      <div class="submit-btn">
-        <button id="form-submit" class="send-btn" type="submit">Envoyez</button>
-      </div>
-    </form>
-  </fieldset>
-
   <footer class="footer">
     <a class="footer__link" href="#">
       <i class="fa-utensils fas footerlink_icon"></i>
