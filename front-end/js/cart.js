@@ -101,9 +101,6 @@ const deleteCart = () => {
 };
 
 const deleteProduct = (i) => {
-  console.log(i);
-  const product = document.getElementById("item" + i);
-  product.remove();
   if (localCart.length === 1) {
     deleteCart();
   } else {
