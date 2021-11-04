@@ -64,6 +64,10 @@
 }
 .cart {
     &__item {
+        @include mobile-only {
+            flex-direction: column;
+            width: 23rem;
+        }
         @include flexbox(row, space-between, center, nowrap);
         @include layout-cards;
         margin: 1rem;
@@ -86,6 +90,9 @@
         }
 
         &__descript {
+            @include mobile-only {
+                flex-direction: column;
+            }
             @include flexbox(row, space-around, center, wrap);
             width: 100%;
         }

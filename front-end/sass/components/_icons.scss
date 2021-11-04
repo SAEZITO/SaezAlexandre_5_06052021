@@ -1,5 +1,10 @@
-.basket{
-    &__compteur{
+.basket {
+    &__compteur {
+        @include mobile-only {
+            position: relative;
+            top: -1rem;
+            left: 2rem;
+        }
         @include flexbox(unset, center, center, unset);
         position: absolute;
         top: 5rem;
@@ -11,6 +16,4 @@
         color: $color-secondary;
         font-size: 1.5rem;
     }
-    
 }
-

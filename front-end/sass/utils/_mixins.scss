@@ -1,18 +1,23 @@
 // MIXINS RESPONSIVE
-@mixin tablet { 
-    @media all and (min-width: map-get($breakpoints, tablet)){
+@mixin tablet {
+    @media all and (min-width: map-get($breakpoints, tablet)) {
         @content;
     }
 }
 
 @mixin desktop-only {
-    @media all and (min-width: map-get($breakpoints, desktop)){
+    @media all and (min-width: map-get($breakpoints, desktop)) {
         @content;
     }
 }
 
+@mixin mobile-only {
+    @media all and (max-width: map-get($breakpoints, mobile)) {
+        @content;
+    }
+}
 // MIXIN PADDINGS DESKTOP
-@mixin padding-desktop($padding: $padding-desktop){ 
+@mixin padding-desktop($padding: $padding-desktop) {
     padding-left: $padding;
     padding-right: $padding;
 }
@@ -23,13 +28,13 @@
 }
 
 @mixin layout-cards {
-    border-radius: $border-radius-card; 
+    border-radius: $border-radius-card;
     @include box-shadow(0.2);
     background-color: white;
 }
 
 // MIXIN FLEXBOX
-@mixin flexbox($dir, $justify, $align, $wrap){ 
+@mixin flexbox($dir, $justify, $align, $wrap) {
     display: flex;
     flex-direction: $dir;
     justify-content: $justify;
@@ -37,7 +42,7 @@
     flex-wrap: $wrap;
 }
 //MIXIN POSITION
-@mixin position ($pos, $top, $right) {
+@mixin position($pos, $top, $right) {
     position: $pos;
     top: $top;
     right: $right;
@@ -46,10 +51,6 @@
 // MIXIN TEXT-OVERFLOW
 @mixin text-overflow {
     text-overflow: ellipsis;
-    overflow: hidden; 
+    overflow: hidden;
     white-space: nowrap;
 }
-
-
-
-

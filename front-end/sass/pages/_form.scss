@@ -1,8 +1,13 @@
 .form {
+  @include mobile-only {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
   @include flexbox(row, space-between, center, wrap);
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   padding: 0;
+  text-align: center;
 
   &__container {
     @include flexbox(column, center, center, nowrap);
@@ -25,28 +30,12 @@
     input {
       margin: 1rem;
       padding: 0.5rem;
-      width: 15rem;
     }
     input:focus,
     input:active,
     input:hover {
       border-color: #926ced;
     }
-    #adress {
-      min-width: 30rem;
-    }
-  }
-  .first--name {
-    width: calc(100% / 3);
-  }
-  .last--name {
-    width: calc(100% / 3);
-  }
-  .mail {
-    width: calc(100% / 3);
-  }
-  .city {
-    width: calc(40% - 2rem);
   }
 
   .submit-btn {

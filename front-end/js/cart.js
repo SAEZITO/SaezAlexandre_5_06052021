@@ -33,7 +33,7 @@ const cartTpl = (data) => {
             <div class="cart__item__descript">    
             <label class="cart__item__quantity-label" for="quantity-${
               product.quantity
-            }">Quantité</label>
+            }">Quantité : </label>
                 <p>${product.quantity}</p>
                 <label class="cart__item__quantity-label" for="itemVarnish">Vernis : </label>
                 <p class="cart__item__varnish itemVarnish">${

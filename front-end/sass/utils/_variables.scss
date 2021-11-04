@@ -4,12 +4,16 @@ $padding-desktop: 2rem;
 $padding-layout: 1rem;
 
 // RESPONSIVE
-$breakpoints: (tablet:760px, desktop:1200px);
+$breakpoints: (
+    tablet: 760px,
+    desktop: 1200px,
+    mobile: 550px,
+);
 
 // VARIABLES COULEURS
-$color-primary: #FD7627;
-$color-secondary: #6E0000;
-$color-tertiary: #996E00;
+$color-primary: #fd7627;
+$color-secondary: #6e0000;
+$color-tertiary: #996e00;
 $color-white: #fff;
 
 $dark-grey: lighten(black, 20%);
@@ -18,9 +22,3 @@ $light-grey: lighten(black, 95%);
 
 // VARIABLES LAYOUT CARDS
 $border-radius-card: 2rem;
-
-
-
-
-
-

@@ -4,15 +4,15 @@
     margin: 1rem;
     background-color: $color-secondary;
     padding: 1rem;
-    width: calc(33% - 6rem);
-    max-height: 25rem;
+    width: 20rem;
     text-align: center;
     color: $color-primary;
     &:hover {
-        transform: scale(1.1);
-        transform-origin: 300ms;
+        @include desktop-only {
+            transform: scale(1.1);
+            transform-origin: 300ms;
+        }
     }
-
     &__link {
         ight: 100%;
         width: 100%;
@@ -28,9 +28,10 @@
     }
 
     &__picture {
-        max-height: 15rem;
+        max-height: 10rem;
         margin: 0;
         object-fit: cover;
+        width: 100%;
     }
     &__price {
         padding: 1rem;
