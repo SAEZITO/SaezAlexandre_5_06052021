@@ -4,9 +4,15 @@ document.addEventListener("DOMContentLoaded", function () {
   if (localCart) {
     basketCompteur(localCart);
   }
+  let selectedProduct = new Product();
+  request(apiFurniture + idProduct).then((article) => {
+    document.getElementById("mainBody").innerHTML = createProductTpl(article);
+    selectedProduct.id = article._id;
+    selectedProduct.name = article.name;
+    selectedProduct.price = article.price;
+    selectedProduct.image = article.imageUrl;
+  });
 });
-
-let selectedProduct = new Product();
 
 const createProductTpl = (article) => {
   if (article?.length === 0) {
@@ -44,14 +50,6 @@ const createProductTpl = (article) => {
   `;
   return tpl;
 };
-
-request(apiFurniture + idProduct).then((article) => {
-  document.getElementById("mainBody").innerHTML = createProductTpl(article);
-  selectedProduct.id = article._id;
-  selectedProduct.name = article.name;
-  selectedProduct.price = article.price;
-  selectedProduct.image = article.imageUrl;
-});
 
 const addProduct = () => {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];

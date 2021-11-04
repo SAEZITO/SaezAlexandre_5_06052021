@@ -4,6 +4,9 @@ document.addEventListener("DOMContentLoaded", function () {
   if (localCart) {
     basketCompteur(localCart);
   }
+  request(apiFurniture).then((articles) => {
+    document.getElementById("mainBody").innerHTML = createListingTpl(articles);
+  });
 });
 
 const createListingTpl = (products) => {
@@ -22,7 +25,3 @@ const createListingTpl = (products) => {
   }
   return tpl;
 };
-
-request(apiFurniture).then((articles) => {
-  document.getElementById("mainBody").innerHTML = createListingTpl(articles);
-});
