@@ -47,6 +47,9 @@ const postData = async (url, userInfo, cart) => {
     console.log(response);
     return response.json();
   });
+    .catch((error) => {
+      console.error(error);
+    });
 };
 
 const totalCartPrice = (data) => {
