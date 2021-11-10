@@ -1,10 +1,10 @@
+let selectedProduct = new Product();
 document.addEventListener("DOMContentLoaded", function () {
   let localCart = JSON.parse(localStorage.getItem("cart"));
 
   if (localCart) {
     basketCompteur(localCart);
   }
-  let selectedProduct = new Product();
   request(apiFurniture + idProduct).then((article) => {
     document.getElementById("mainBody").innerHTML = createProductTpl(article);
     selectedProduct.id = article._id;
